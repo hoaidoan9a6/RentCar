@@ -20,6 +20,7 @@ namespace Business.Constants
         public static string BrandUpdated = "Brand updated.";
         public static string BrandNameInvalid = "Brand name is invalid.";
 
+
         // Color Messages
         public static string ColorAdded = "Color added.";
         public static string ColorDeleted = "Color deleted.";
