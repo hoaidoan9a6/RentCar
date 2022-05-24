@@ -12,5 +12,6 @@ namespace Entities.DTOs
         public decimal DailyPrice { get; set; }
 
 
+
     }
 }
