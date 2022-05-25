@@ -1,12 +1,16 @@
-﻿using System;
 using Core;
 
 namespace Entities.Concrete
 {
-    public interface Brand : IEntity
+    public class Car : IEntity
     {
+        public int Id { get; set; }
         public int BrandId { get; set; }
-        public string BrandName { get; set; }
-        
+        public int ColorId { get; set; }
+        public string CarName { get; set; }
+        public int ModelYear { get; set; }
+        public decimal DailyPrice { get; set; }
+        public string Description { get; set; }
+
     }
 }
