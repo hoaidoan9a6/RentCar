@@ -1,9 +1,13 @@
 using Core;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Concrete
 {
     public class Car : IEntity
     {
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int BrandId { get; set; }
         public int ColorId { get; set; }

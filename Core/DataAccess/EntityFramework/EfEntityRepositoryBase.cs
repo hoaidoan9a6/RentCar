@@ -16,7 +16,9 @@ namespace Core.DataAccess.EntityFramework
             {
                 var addEntity = context.Entry(entity);
                 addEntity.State = EntityState.Added;
+                context.Entry(entity).State = EntityState.Added;
                 context.SaveChanges();
+                SetInsertOFF(context);
             }
         }
 
@@ -26,7 +28,9 @@ namespace Core.DataAccess.EntityFramework
             {
                 var deleteEntity = context.Entry(entity);
                 deleteEntity.State = EntityState.Deleted;
+
                 context.SaveChanges();
+
             }
         }
 
@@ -55,6 +59,19 @@ namespace Core.DataAccess.EntityFramework
                 updatedEntity.State = EntityState.Modified;
                 context.SaveChanges();
             }
+        }
+        public void SetInsertON(TContext context)
+        {
+            context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Cars ON");
+            context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Colors ON");
+            context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Brands ON");
+        }
+
+        public void SetInsertOFF(TContext context)
+        {
+            context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Cars OFF");
+            context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Colors OFF");
+            context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Brands OFF");
         }
     }
 }
